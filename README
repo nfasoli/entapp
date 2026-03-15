@@ -1,0 +1,5 @@
+Per installare necessitiamo sia di azure-cli (az) sia di azure function tools (func)
+
+Oltre al classico sistema di gestione git occorre innanzitutto creare una function app sul tenant azure di note, poniamo, entapp
+
+Fatto questo si va di func azure functionapp publish entapp 
