@@ -3,3 +3,23 @@ Per installare necessitiamo sia di azure-cli (az) sia di azure function tools (f
 Oltre al classico sistema di gestione git occorre innanzitutto creare una function app sul tenant azure di note, poniamo, entapp
 
 Fatto questo si va di func azure functionapp publish entapp 
+
+[ Utente in Tenant A ]
+        |
+        | 1. apre la app SAML ospitata in Tenant B
+        v
+[ Tenant B - Enterprise Application ]
+        |
+        | 2. riconosce che l’utente è esterno / cross-tenant
+        | 3. applica cross-tenant access + Conditional Access
+        | 4. reindirizza l’utente al suo home tenant
+        v
+[ Tenant A - autenticazione primaria ]
+        |
+        | 5. utente fa sign-in / MFA nel tenant di origine
+        v
+[ Tenant B ]
+        |
+        | 6. emette la SAML assertion verso l’app
+        v
+[ Service Provider / SAML Toolkit ]
